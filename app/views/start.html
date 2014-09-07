@@ -1,0 +1,25 @@
+<div class="container-full">
+<h1 class="whiteboard-title">Select Whiteboard</h1>
+	<div class="login-create-form">
+	</div>
+
+	<div class="whiteboard">
+		<div class="col-lg-4 filter-create-whiteboards">
+			<input class="form-control" type="text" ng-model="searchText" placeholder="Search text">
+			<div class="whiteboards-list" style="height: 550px; overflow-y: overlay;">
+				<ul>
+					<li ng-repeat="whiteboard in whiteboards | filter:searchText | orderBy:'name' track by $index"><a ng-click="selectWb(whiteboard)">{{ whiteboard.name }}</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="col-lg-4 filter-create-whiteboards">
+			<div class="input-group">
+				<input type="text" class="form-control" ng-model="newWhiteboardInput">
+				<span class="input-group-btn">
+					<button class="btn btn-default" required ng-click="newWhiteboard()" type="button">Create new Whiteboard</button>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

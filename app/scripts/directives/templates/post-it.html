@@ -1,0 +1,14 @@
+<div ng-class="getStatusCss()">
+	<center>
+		<wb-post-it-status-panel content="content" ng-class="$parent.ghostActive ? 
+		'wb-post-it-status-panel-hidden' : ''"></wb-post-it-status-panel>
+		<div class="postit-scroll-read">
+			<div  class="clearfix"></div>
+
+			<b>{{content.author}}<br/></b>
+			<i>{{content.text}}<br/></i>
+
+		</div>
+		<p class="postit-timestamp">{{content.timestamp}}</p>
+	</center>
+</div>

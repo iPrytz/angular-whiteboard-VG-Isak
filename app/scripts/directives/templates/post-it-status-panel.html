@@ -1,0 +1,18 @@
+<span class="remove-icon glyphicon glyphicon-remove pull-left status-panel-remove-button" ng-click="deletePostIt(content.id)"></span>
+<span class="edit-icon glyphicon glyphicon-pencil pull-left status-panel-edit-button" ng-click="showEdit()"></span>
+
+<div class="btn-group pull-right">
+	<button type="button" class="btn dropdown-toggle text-align-right" data-toggle="dropdown">
+		{{content.status}}<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu text-align-center" role="menu">
+		<li class="not-started" ng-click="changeStatus(notStarted)">not started</li>
+		<li class="in-progress" ng-click="changeStatus(inProgress)">in progress</li>
+		<li class="done" ng-click="changeStatus(done)">done</li>
+		<li class="on-hold" ng-click="changeStatus(onhold)">on hold</li>
+	</ul>
+</div>
+
+<div ng-show="showEditForm" class="dropdown-menu edit-form">
+	<wb-postit-edit content="content" showEditForm="showEditForm"></wb-postit-edit>
+</div>

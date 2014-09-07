@@ -1,0 +1,25 @@
+<div class="not-logged-in" ng-show="!loggedIn"></div>	
+<div class="login-create-form">
+	<div class="pull-right">
+		<span ng-show="!loggedIn">
+			<span class="login-group pull-right">
+				<span class="input-group">
+					<input ng-model="username" placeholder="Username" type="text" class="form-control">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-default" type="button" ng-disabled="!username" ng-click="login()">Login</button>
+					</span>
+				</span>
+			</span>
+		</span>
+		<span ng-show="loggedIn">
+			<span class="btn-group">
+				<button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Logged in as {{username}} &nbsp; &nbsp;<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li ng-click="logout()">Logout</li>
+				</ul>
+			</span>
+		</span>
+		<wb-post-it-create ng-show="loggedIn"></wb-post-it-create>
+	</div>
+</div>

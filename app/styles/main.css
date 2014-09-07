@@ -1,0 +1,284 @@
+/* Space out content a bit */
+@font-face {
+  font-family: AYearWithoutRain;
+  src: url(../fonts/AYearWithoutRain.ttf);
+}
+
+body {
+  padding: 20px;
+  background-color: lightgrey;
+  background-image: url(../images/brick_wall_pattern.jpg);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:#00A0C0; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+
+.filter-create-whiteboards{
+margin-top: 20px;
+}
+
+body:before { 
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+
+.whiteboard{
+  height: 600px;
+  width: 1360px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  background-color: white;
+}
+
+.wb-post-it-status-panel-hidden{
+  visibility: hidden;
+}
+
+.status-panel-remove-button{
+  margin-left: 2px; 
+  margin-top: 2px; 
+  margin-right: 5px;
+}
+
+.status-panel-edit-button{
+  margin-left: 5px; 
+  margin-top: 2px;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.postit-timestamp{
+  font-size: 10px;
+}
+
+wb-post-it, #post-it-ghost{
+  height: 150px; 
+  width: 150px; 
+  margin: 10px; 
+  float: left;
+  cursor: move;
+  position:absolute;
+}
+
+wb-post-it i, #post-it-ghost i{
+  white-space: pre-wrap;
+}
+
+wb-post-it:hover{
+  z-index: 1000;
+}
+
+#post-it-ghost{
+  opacity: 0.3;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar{
+  width:5px;
+} 
+
+::-webkit-scrollbar-thumb{
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1);
+}  
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+wb-post-it-status-panel .btn-group button{
+  padding-top: 0px;
+  min-width: 80px;
+}
+
+.not-started, .not-started button, .in-progress, .in-progress button, .done, .done button, .on-hold, .on-hold button{
+  transition: background-image 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+
+.postit-scroll-read{
+  padding: 2px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 104px;
+  overflow-y:hidden;
+  overflow-x: hidden;
+}
+
+.postit-scroll-read:hover{
+  overflow-y: overlay;
+}
+
+.not-started, .not-started button{
+  background-image: url(../images/new/postit.png);
+}
+
+.in-progress, .in-progress button{
+  background-image: url(../images/new/postitprogress.png);
+}
+.done, .done button{
+  background-image: url(../images/new/postitdone.png);
+}
+.on-hold, .on-hold button{
+  background-image: url(../images/new/postitonhold.png);
+}
+
+.not-started:hover, .in-progress:hover, .done:hover, .on-hold:hover{
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+.in-progress button, .done button, .on-hold button, .not-started button{
+ padding: 0px;
+}
+
+wb-post-it-status-panel{
+  cursor: pointer;
+  height: 100%;
+  transition: opacity 0.25s ease-in;
+  opacity: 0;
+}
+
+.dropdown-menu{
+  transition: color 0.1s ease-in-out;
+  padding: 0px;
+}
+
+.dropdown-menu li{
+  padding: 0px;
+}
+
+.dropdown-menu li:hover{
+  background-color: rgba(0,0,0,0.5);
+  transition: none;
+}
+
+.not-logged-in{
+  position:absolute; 
+  height: 800px;  
+  z-index: 50000; 
+  left: 0px; 
+  top: 0px;
+  width: 1500px; 
+  background-color: RGBA(0,0,0,0.5);
+}
+
+.admin-note{
+  width: 300px;
+  height: 300px;
+  background-color: #d9534f;
+  box-shadow: 5px 5px 10px rgba(10, 10, 10, 0.4);
+  -moz-transform: rotate(-7deg);
+  -webkit-transform: rotate(-7deg);
+  -o-transform: rotate(-7deg);
+  -ms-transform: rotate(-7deg);
+  transform: rotate(-7deg);
+}
+
+.edit-form{
+ min-width: 250px;
+ min-height: 250px;
+ padding: 10px; 
+ position: absolute; 
+ left: 20px; 
+ top: 20px; 
+ overflow: visible; 
+ display: block;
+}
+.edit-form textarea, .create-form textarea{
+  margin-bottom: 5px;
+  max-width: 228px;
+}
+
+.login-create-form{
+ position: relative; 
+ margin-bottom: 0px; 
+ height: 45px;
+ width: 100%; 
+ max-width: 1360px; 
+ min-width: 250px; 
+ z-index: 50010
+}
+
+.login-group{
+  width: 220px;
+}
+
+.create-form{
+  min-height: 250px;
+  width: 250px;
+  right: 18px;
+  left: auto;
+  top: 80px;
+  z-index: 1001;
+  min-height: 250px;
+  padding: 10px;  
+  overflow: visible; 
+  display: none;
+}
+
+.undo-buttons{
+  width: 50px;
+  height: 40px;
+}
+
+.undo-buttons span{
+  font-size: 25px;
+  vertical-align:middle
+  display: inline-block;
+}
+
+.outside-boundaries{
+  background-image: url(../images/new/postitnotallowed.png);
+}
+
+.inside-boundaries{
+  background-image: url(../images/new/postit.png);
+}
+
+#about-text{
+  width: 100%;
+  height: 100%;
+  font-family: AYearWithoutRain;
+  font-size: 200px;
+  text-align: center;
+}
+
+.whiteboard-title{
+  position: absolute;
+  top: 0px;
+  left: 30px;
+}

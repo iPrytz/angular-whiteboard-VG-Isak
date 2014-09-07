@@ -1,0 +1,11 @@
+<form ng-keyup="closeEditFormEsc($event)" >
+	<fieldset>
+		<label>Update Content</label>
+		
+		<textarea class="form-control" ng-model-options="{ updateOn: 'blur' }" ng-model="inputText" rows="10">{{inputText}}</textarea>
+
+		<a type="button" ng-click="closeEditForm()" class="btn btn-default btn-sm">Cancel</a>
+		<a type="button" ng-click="updatePostit()" class="btn btn-primary btn-sm">Update</a>
+
+	</fieldset>
+</form>
