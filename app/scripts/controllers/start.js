@@ -1,6 +1,6 @@
 'use strict';
 angular.module('whiteboardApp')
-	.controller('StartCtrl', function($scope, CRUDFactory, $location, localStorageService) {
+	.controller('StartCtrl', function($scope, CRUDFactory, $location) {
 
 		$scope.whiteboards = [];
 		$scope.selectedWb = 'main';
@@ -21,7 +21,6 @@ angular.module('whiteboardApp')
 				for (var i = 0; i < $scope.whiteboards.length; i++) {
 					if ($scope.whiteboards[i].name === $scope.newWhiteboardInput) {
 						wbExists = true;
-						console.log(wbExists);
 						break;
 					}
 				}
@@ -48,9 +47,6 @@ angular.module('whiteboardApp')
 		};
 
 		$scope.selectWb = function(selectedWhiteboard) {
-			console.log('start ' + selectedWhiteboard);
-			localStorageService.add('selectedWb', selectedWhiteboard.nameAsURL)
-			CRUDFactory.selectWb(selectedWhiteboard.nameAsURL, selectedWhiteboard.name);
 			$location.path('/whiteboard/' + selectedWhiteboard.nameAsURL);
 
 		};

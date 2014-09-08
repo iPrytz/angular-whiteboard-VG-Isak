@@ -8,18 +8,14 @@ angular.module('whiteboardApp')
 		// U PUT OBJ TO URL http://api.beta2.se/wb-div-postits/:id
 		// D DELETE OBJ TO URL http://api.beta2.se/wb-div-postits/:id
 
-		var URL = 'http://localhost:14782/wb-div-whiteboard=';
-		var whiteboardsInDbURL = "http://localhost:14782/wb-div-whiteboards";
-		var selectedWbUrl = 'main';
-		var selectedWbName = 'main';
+		var URL = 'http://api.beta2.se/wb-div-prytz-whiteboard=';
+		var whiteboardsInDbURL = 'http://api.beta2.se/wb-div-prytz-whiteboards';
 
 		return {
 			//C
 			createPostIt: function(newPostIt, successCallback, errorCallback) {
-				//selectedWbUrl = $routeparams.selectedWbName;
 				$http.post(URL + $route.current.params.selectedWbName, newPostIt).success(function(data) {
 					successCallback(data);
-					console.log(URL + '    ---    ' + selectedWbUrl);
 				}).error(function() {
 					errorCallback();
 				});
@@ -51,14 +47,6 @@ angular.module('whiteboardApp')
 				$http.get(whiteboardsInDbURL + '/').success(function(data) {
 					callback(data);
 				});
-			},
-			selectWb: function(selectedWhiteboardURL, selectedWhiteboardName) {
-				selectedWbUrl = selectedWhiteboardURL;
-				selectedWbName = selectedWhiteboardName;
-				console.log(selectedWbUrl + selectedWbName);
-			},
-			getSelectedWb: function() {
-				return selectedWbName;
 			}
 		};
 	});

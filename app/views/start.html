@@ -3,10 +3,10 @@
 	<div class="login-create-form">
 	</div>
 
-	<div class="whiteboard">
+	<div class="whiteboard-select">
 		<div class="col-lg-4 filter-create-whiteboards">
 			<input class="form-control" type="text" ng-model="searchText" placeholder="Search text">
-			<div class="whiteboards-list" style="height: 550px; overflow-y: overlay;">
+			<div class="whiteboards-list">
 				<ul>
 					<li ng-repeat="whiteboard in whiteboards | filter:searchText | orderBy:'name' track by $index"><a ng-click="selectWb(whiteboard)">{{ whiteboard.name }}</a></li>
 				</ul>

@@ -2,22 +2,11 @@
 angular.module('whiteboardApp')
 	.controller('MainCtrl', function($interval, $scope, CRUDFactory, $location, $route) {
 		$scope.postits = [];
-		$scope.selectedWb = CRUDFactory.getSelectedWb();
 
 		$scope.goToWbs = function() {
 			$interval.cancel(intervalUpdate);
 			$location.path('/');
-
-			console.log('nooooo');
-			console.log($route.current.params.selectedWbName);
 		};
-		/*function checkExistingWhiteboads() {
-				var existingWbs = CRUDFactory.greadWhiteboards();
-
-				for (var i = 0; i < existingWbs.length; i++) {
-					if (existingWbs[i].nameAsUrl === 
-				};
-			}*/
 
 		function updatePostits(postitArray, current, iterator) {
 			CRUDFactory.readPostIts(function(data) {

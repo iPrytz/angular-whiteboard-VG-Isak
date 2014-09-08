@@ -22,6 +22,7 @@ angular.module('whiteboardApp')
 					$document.bind('mousemove', moveGhost);
 					$document.bind('keydown', cancelOnEsc);
 					scope.ghostActive = false;
+					scope.toggleForm = true;
 				}
 
 				init();
@@ -44,16 +45,21 @@ angular.module('whiteboardApp')
 					}
 				};
 
-				scope.cancelCreationOfPostIt = function() {
+				scope.cancelCreationOfPostIt = function(toggleForm) {
 					unbindEvents();
 					scope.ghostActive = false;
 					ghost.removeClass('outside-boundaries').addClass('inside-boundaries');
 					ghost.children().show();
+					scope.postItText = '';
+
+					if (toggleForm) {
+						scope.toggleForm();
+					}
 				};
 
 				scope.createPostItGhost = function() {
 					var date = new Date();
-					console.log('ghost' + scope.ghostActive + x + y);
+
 					scope.postItTemplate = {
 						id: '',
 						author: scope.username,
@@ -73,8 +79,6 @@ angular.module('whiteboardApp')
 					scope.postItText = '';
 
 					scope.ghostActive = true;
-					console.log('ghost är ' + scope.ghostActive);
-
 				};
 
 				function bindEvents() {
@@ -88,7 +92,6 @@ angular.module('whiteboardApp')
 				function clampWidth(value) {
 					var maxWidthValue = whiteBoard.width() - ghost.width(),
 						minWidthValue = whiteBoard.offset().left;
-
 					if (value >= maxWidthValue) {
 						return maxWidthValue;
 					} else if (value <= minWidthValue) {
@@ -101,7 +104,6 @@ angular.module('whiteboardApp')
 				function clampHeight(value) {
 					var maxHeightValue = whiteBoard.height() + whiteBoard.offset().top - 50,
 						minHeightValue = whiteBoard.offset().top;
-
 					if (value > maxHeightValue) {
 						return maxHeightValue;
 					} else if (value < minHeightValue) {
@@ -113,7 +115,6 @@ angular.module('whiteboardApp')
 
 				function isOutsideOfPlaceableArea(x, y) {
 					var ghostMargin = parseInt(ghost.css('margin'));
-
 					var maxWidthValue = whiteBoard.width() + whiteBoard.offset().left - ghostMargin - 1,
 						minWidthValue = whiteBoard.offset().left + ghostMargin,
 						maxHeightValue = whiteBoard.height() + whiteBoard.offset().top - 50 + ghost.height(),
@@ -139,6 +140,7 @@ angular.module('whiteboardApp')
 				function updateGraphicalPositions(newX, newY) {
 					x = clampWidth(newX);
 					y = clampHeight(newY);
+
 					ghost.css({
 						top: y + 'px',
 						left: x + 'px'
@@ -152,7 +154,6 @@ angular.module('whiteboardApp')
 
 				function createPostItAtGhostPosition() {
 					unbindEvents();
-
 					scope.postItTemplate.position.x = x;
 					scope.postItTemplate.position.y = y;
 

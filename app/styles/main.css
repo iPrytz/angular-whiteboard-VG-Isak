@@ -54,6 +54,19 @@ body:before {
   background-color: white;
 }
 
+.whiteboard-select{
+  height: 600px;
+  width: 1360px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  background-color: white;
+}
+
+.whiteboards-list{
+  height: 550px; 
+  overflow-y: overlay;
+}
+
 .wb-post-it-status-panel-hidden{
   visibility: hidden;
 }
